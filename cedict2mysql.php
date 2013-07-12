@@ -80,8 +80,8 @@ function usage()
 {
     global $argv;
     $text = "Generates an MySQL/Maria SQL-Script for the CC-CEDICT dictionary. For the table format, look up the readme.\n";
-    $text .= sprintf("usage: %s <dictionary-file> [tablename] \n\n", $argv[0]);
-    $text .= sprintf("Example: \n %s cedict_ts.u8 dictionary > install.sql \n", $argv[0]);
+    $text .= sprintf("usage: php %s <dictionary-file> [tablename] \n\n", $argv[0]);
+    $text .= sprintf("Example: \nphp %s cedict_ts.u8 dictionary > install.sql \n", $argv[0]);
 
     echo $text;
 }
