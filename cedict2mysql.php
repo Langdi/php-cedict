@@ -1,12 +1,5 @@
 <?php
 /**
- * User: Daniel Lang
- * Date: 12.07.13
- * Time: 22:29
- */
-
-
-/**
  * Credits for this function go to velcrow, who shared this
  * at http://stackoverflow.com/questions/1162491/alternative-to-mysql-real-escape-string-without-connecting-to-db
  * @param string $string the string to  be escaped
