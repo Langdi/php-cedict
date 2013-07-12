@@ -120,15 +120,6 @@ $sql = "CREATE TABLE IF NOT EXISTS `{$tablename}` (
           PRIMARY KEY (`id`)
         ) ENGINE=InnoDB  DEFAULT CHARSET=utf8; \n\n";
 
-$sql .= "INSERT INTO  `{$tablename}` (
-            `traditional` ,
-            `simplified` ,
-            `pinyin_numbers` ,
-            `pinyin_marks` ,
-            `translation`
-        )
-        VALUES
-       ";
 
 foreach ($dictionary as $entry) {
     if (substr($entry, 0, 1) == "#") {
@@ -142,11 +133,16 @@ foreach ($dictionary as $entry) {
     $pinyin_marks = pinyin_addaccents($matches[3]);
     $translation = escape($matches[4]);
 
-    $value_string = '("' . $traditional . '", "' . $simplified . '", "' . $pinyin_numbers . '", "' . $pinyin_marks . '", "' . $translation . '"),' . "\n";
-
-    $sql .= $value_string;
+    $sql .= "INSERT INTO  `{$tablename}` (
+            `traditional` ,
+            `simplified` ,
+            `pinyin_numbers` ,
+            `pinyin_marks` ,
+            `translation`
+        )
+        VALUES
+       ";
+    $sql .= '("' . $traditional . '", "' . $simplified . '", "' . $pinyin_numbers . '", "' . $pinyin_marks . '", "' . $translation . '");' . "\n";
 }
-$sql = mb_substr($sql, 0, -2);
-$sql .= ";\n";
 
 echo $sql;
