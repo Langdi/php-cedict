@@ -90,6 +90,7 @@ if ($argc < 2 || $argc > 3) {
 
 if (!is_readable($argv[1])) {
     echo sprintf("The specified dictionary file %s is not readable. \n", $argv[1]);
+    exit;
 }
 
 if (isset($argv[2])) {
